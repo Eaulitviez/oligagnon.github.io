@@ -1675,6 +1675,11 @@ button:hover {
 .projects .swiper-slide {
   position: relative;
 }
+@media (width <= 830px) {
+  .projects .swiper-slide.swiper-slide-active .card_content {
+    opacity: 1;
+  }
+}
 .projects span {
   color: white;
   filter: drop-shadow(0 0 12px #bb62ff) drop-shadow(0 0 60px #bb62ff);
