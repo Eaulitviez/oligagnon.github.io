@@ -1443,7 +1443,7 @@ a:hover {
 }
 .hero .hero_card {
   position: absolute;
-  bottom: 25%;
+  bottom: 15%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 300px;
@@ -1451,8 +1451,9 @@ a:hover {
 @media (width <= 830px) {
   .hero .hero_card {
     grid-template-columns: 1fr;
+    gap: 0px;
     left: 50%;
-    top: 40%;
+    top: 55%;
     text-align: center;
     transform: translate(-50%, 0%);
   }
@@ -1463,7 +1464,7 @@ a:hover {
 @media (width <= 830px) {
   .hero .hero_media {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
   }
 }
@@ -1513,7 +1514,7 @@ button:hover {
 }
 
 .about {
-  padding: 100px;
+  padding: 100px 0px;
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -1521,6 +1522,20 @@ button:hover {
 .about .wrapper {
   position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (width <= 830px) {
+  .about .wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .about .wrapper .about_media {
+    order: -1;
+  }
+  .about .wrapper .about_content {
+    align-items: center;
+  }
 }
 .about .canvas {
   position: absolute;
@@ -1529,22 +1544,6 @@ button:hover {
   height: 100% !important;
   display: block;
   z-index: 0;
-}
-.about .about_card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-@media (width <= 830px) {
-  .about .about_card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .about .about_card .about_media {
-    order: -1;
-  }
-  .about .about_card .about_content {
-    align-items: center;
-  }
 }
 .about h2 {
   border-bottom: 1px solid var(--color-primary);
