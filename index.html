@@ -18,13 +18,13 @@
 
 <body>
     <!-- Header -->
-    <header class="header" data-component="header">
+    <header class="header" data-component="Header">
         <div class="wrapper">
             <img src="assets/images/logo.png" alt="" />
 
-            <nav class="principale">
+            <nav>
                 <ul>
-                    <li><a href="">Accueil</a></li>
+                    <li><a href="#accueil">Accueil</a></li>
                     <li><a href="">À propos</a></li>
                     <li><a href="">Projets</a></li>
                     <li><a href="">Vidéo</a></li>
@@ -39,6 +39,11 @@
                     </li>
                 </ul>
             </nav>
+            <div class="menu_hamburger">
+                <svg class="icon icon--md header__toggle js-toggle">
+                    <use href="#icon-hamburger"></use>
+                </svg>
+            </div>
         </div>
     </header>
 
@@ -61,7 +66,9 @@
                                 </h3>
                             </div>
                             <div class="hero_media" data-speed="0.75" data-lag="0.2">
-                                <button><a href="">VOIR MES PROJETS</a></button>
+                                <button data-component="SpecularButton" data-line-color="#be7dfc" data-intensity="3" data-auto-animate>
+                                    <a href="">VOIR MES PROJETS</a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -102,66 +109,75 @@
                 <section class="about">
                     <div class="wrapper">
                         <div class="about_content">
-                            <h2 js-pinned data-component="TextAnim" data-repeat>C'est qui lui</h2>
-                            <p>
-                                Étudiant au cégep âgé de 24 ans, je suis passionné par la création numérique et le design. Je me spécialise en design UI/UX, en
-                                modélisation 3D et en animation, avec l’envie de transformer des idées en expériences visuelles uniques. En dehors du design, mes
-                                passions pour le gym, les jeux vidéo et le cinéma nourrissent constamment ma créativité. Je suis actuellement à la recherche d’un stage
-                                en création 3D ou en design afin de mettre mes compétences en pratique, développer mon expérience et contribuer à des projets créatifs.
-                            </p>
+                            <div data-component="BorderGlow" data-background-color="#0c0614" data-border-radius="16" data-glow-color="275 90 70" data-colors="#bb62ff,#9729d6,#38bdf8" data-animated>
+                                <div style="padding: 2rem">
+                                    <h2 js-pinned data-component="TextAnim" data-repeat>C'est qui lui?</h2>
+
+                                    <p>
+                                        Étudiant au cégep âgé de 24 ans, je suis passionné par la création numérique et le design. Je me spécialise en design UI/UX, en
+                                        modélisation 3D et en animation, avec l’envie de transformer des idées en expériences visuelles uniques. En dehors du design,
+                                        mes passions pour le gym, les jeux vidéo et le cinéma nourrissent constamment ma créativité. Je suis actuellement à la recherche
+                                        d’un stage en création 3D ou en design afin de mettre mes compétences en pratique, développer mon expérience et contribuer à des
+                                        projets créatifs.
+                                    </p>
+                                </div>
+                            </div>
+
                             <h3 js-pinned data-component="TextAnim" data-repeat delay:0.8s>Compétences:</h3>
                             <h4>Softskills</h4>
-                            <ul class="softskills">
-                                <li>
+                            <ul class="softskills" data-component="MagicBento" data-glow-color="187, 98, 255">
+                                <li class="magic-bento-card">
                                     <p>Persévérant</p>
                                 </li>
-                                <li>
-                                    <p>Collaboration</p>
+                                <li class="magic-bento-card">
+                                    <p>Collaboratif</p>
                                 </li>
-                                <li>
+                                <li class="magic-bento-card">
                                     <p>Créatif</p>
                                 </li>
-                                <li>
+                                <li class="magic-bento-card">
                                     <p>Perfectionniste</p>
                                 </li>
                             </ul>
                             <h4>Logiciels</h4>
-                            <ul class="logiciel">
-                                <li>
+                            <ul class="logiciel" data-component="MagicBento" data-glow-color="187, 98, 255">
+                                <li class="magic-bento-card">
                                     <svg class="icon icon--lg">
                                         <use href="#icon-blender"></use>
                                     </svg>
                                 </li>
-                                <li>
+                                <li class="magic-bento-card">
                                     <svg class="icon icon--lg">
                                         <use href="#icon-figma"></use>
                                     </svg>
                                 </li>
-                                <li>
+                                <li class="magic-bento-card">
                                     <svg class="icon icon--lg">
                                         <use href="#icon-ae"></use>
                                     </svg>
                                 </li>
-                                <li>
+                                <li class="magic-bento-card">
                                     <svg class="icon icon--lg">
                                         <use href="#icon-ps"></use>
                                     </svg>
                                 </li>
-                                <li>
+                                <li class="magic-bento-card">
                                     <svg class="icon icon--lg">
                                         <use href="#icon-pr"></use>
                                     </svg>
                                 </li>
-                                <li>
+                                <li class="magic-bento-card">
                                     <svg class="icon icon--lg">
                                         <use href="#icon-ue"></use>
                                     </svg>
                                 </li>
                             </ul>
-                            <button class="video" data-video-open><a href="#">VOIR MA VIDÉO</a></button>
+                            <button data-component="SpecularButton" data-line-color="#be7dfc" data-intensity="3" data-auto-animateclass="video" data-video-open>
+                                <a href="#">VOIR MA VIDÉO</a>
+                            </button>
                         </div>
-                        <div class="about_media">
-                            <img src="assets/images/pdp.png" alt="" />
+                        <div class="about_media tilted-card" data-component="TiltedCard" data-rotate-amplitude="12" data-scale-on-hover="1.08" data-caption="lui">
+                            <img src="assets/images/pdp.png" alt="Olivier Gagnon" />
                         </div>
                     </div>
                     <div class="canvas" data-us-project="FDnWGddJXp8ptRzHhIUr"></div>
@@ -200,13 +216,19 @@
                 <section class="projects">
                     <div class="wrapper">
                         <h2 data-component="TextAnim" data-repeat>Mes projets</h2>
-                        <div class="swiper" data-component="Carousel" data-coverflow data-loop data-split>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
 
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="card_media"><img src="assets/images/spiderman.jpg" alt="" /></div>
+                        <div class="flex-projects" data-component="FlexCarousel" data-preset="vortex" data-fit="landscape" data-card-height="0.6" data-focus-scale="1.7" data-intro="rise">
+                            <!-- Le canvas WebGL est créé ici par le JS -->
+                            <div class="flex-projects__stage"></div>
+
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-pagination"></div>
+
+                            <!-- Source des projets : lue par le JS puis masquée -->
+                            <div class="flex-projects__slides">
+                                <div class="flex-project">
+                                    <img src="assets/images/spiderman.jpg" alt="" />
                                     <div class="card_content">
                                         <h4>
                                             <span>Modélisation et animation 3D:</span>
@@ -218,14 +240,17 @@
                                             entièrement dans blender en utilisant des techniques avancé de simulation ainsi que de texture animé afin d’être le plus
                                             fidèle possible au matériel d’origine.
                                         </p>
-                                        <button><a href="">VOIR LE PROJET</a></button>
+                                        <button data-component="SpecularButton" data-line-color="#be7dfc" data-intensity="3" data-auto-animate>
+                                            <a href="">VOIR LE PROJET</a>
+                                        </button>
                                     </div>
                                     <svg class="icon icon--lg">
                                         <use href="#icon-3d"></use>
                                     </svg>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="card_media"><img src="assets/images/starwars.jpg" alt="" /></div>
+
+                                <div class="flex-project">
+                                    <img src="assets/images/starwars.jpg" alt="" />
                                     <div class="card_content">
                                         <h4>
                                             <span>Modélisation et animation 3D:</span>
@@ -237,14 +262,17 @@
                                             animée en boucle avec les réalisations des étudiants. J’ai choisi de recréer la scène du couloir de Darth Vader, en
                                             utilisant des assets de Sketchfab et en modélisant moi-même la planète, l’Étoile de la Mort et l’intérieur du vaisseau.
                                         </p>
-                                        <button><a href="">VOIR LE PROJET</a></button>
+                                        <button data-component="SpecularButton" data-line-color="#be7dfc" data-intensity="3" data-auto-animate>
+                                            <a href="">VOIR LE PROJET</a>
+                                        </button>
                                     </div>
                                     <svg class="icon icon--lg">
                                         <use href="#icon-3d"></use>
                                     </svg>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="card_media"><img src="assets/images/interstellar.jpg" alt="" /></div>
+
+                                <div class="flex-project">
+                                    <img src="assets/images/interstellar.jpg" alt="" />
                                     <div class="card_content">
                                         <h4>
                                             <span>Modélisation et animation 3D:</span>
@@ -256,14 +284,17 @@
                                             de notre choix. Je me suis inspiré de 2001: A Space Odyssey et j’ai choisi de modéliser entièrement la scène moi-même,
                                             malgré la recommandation du professeur d’utiliser des assets pour faciliter la réalisation.
                                         </p>
-                                        <button><a target="_blank" href="https://www.behance.net/gallery/256535867/Voyage-interstellaire">VOIR LE PROJET</a></button>
+                                        <button data-component="SpecularButton" data-line-color="#be7dfc" data-intensity="3" data-auto-animate>
+                                            <a target="_blank" href="https://www.behance.net/gallery/256535867/Voyage-interstellaire">VOIR LE PROJET</a>
+                                        </button>
                                     </div>
                                     <svg class="icon icon--lg">
                                         <use href="#icon-3d"></use>
                                     </svg>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="card_media"><img src="assets/images/subzero.jpg" alt="" /></div>
+
+                                <div class="flex-project">
+                                    <img src="assets/images/subzero.jpg" alt="" />
                                     <div class="card_content">
                                         <h4>
                                             <span>Design interface de jeu vidéo UI/UX</span>
@@ -275,14 +306,17 @@
                                             vidéo fictif. L’objectif était de concevoir une interface en utilisant l’intelligence artificielle comme outil pour nous
                                             aider à conceptualiser et développer nos idées. Le projet a été entièrement réalisé dans Figma.
                                         </p>
-                                        <button><a href="">VOIR LE PROJET</a></button>
+                                        <button data-component="SpecularButton" data-line-color="#be7dfc" data-intensity="3" data-auto-animate>
+                                            <a href="">VOIR LE PROJET</a>
+                                        </button>
                                     </div>
                                     <svg class="icon icon--lg">
                                         <use href="#icon-design"></use>
                                     </svg>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="card_media"><img src="assets/images/vivo.jpg" alt="" /></div>
+
+                                <div class="flex-project">
+                                    <img src="assets/images/vivo.jpg" alt="" />
                                     <div class="card_content">
                                         <h4>
                                             <span>Design interface de jeu vidéo UI/UX</span>
@@ -294,14 +328,15 @@
                                             concevoir une page web fictive pour le mettre en valeur et en faire la promotion. J’ai travaillé sur la mise en page,
                                             l’esthétique et l’interface afin de créer une présentation cohérente du produit.
                                         </p>
-                                        <button><a href="">VOIR LE PROJET</a></button>
+                                        <button data-component="SpecularButton" data-line-color="#be7dfc" data-intensity="3" data-auto-animate>
+                                            <a href="">VOIR LE PROJET</a>
+                                        </button>
                                     </div>
                                     <svg class="icon icon--lg">
                                         <use href="#icon-design"></use>
                                     </svg>
                                 </div>
                             </div>
-                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
 
@@ -398,7 +433,7 @@
     </div>
 
     <video controls playsinline preload="metadata">
-        <source src="assets/video/Hell Answers To Me For I Am Doom Hall H Marvel Panel SDCC San Diego Comic Con 2026.mp4" type="video/mp4" />
+        <source src="assets/video/video présentation.mp4" type="video/mp4" />
     </video>
 </dialog>
 
