@@ -1503,20 +1503,6 @@ a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: transparent;
-  text-shadow: 1px 1px 0 var(--color-primary), 2px 2px 0 rgb(173, 76, 218), 3px 3px 0 rgb(169, 98, 228), 4px 4px 0 rgb(198, 136, 248), 5px 5px 0 rgb(208, 147, 248), 6px 6px 0 rgb(197, 159, 248), 7px 7px 0 rgb(204, 174, 248), 8px 8px 0 rgb(213, 189, 247), 9px 9px 0 rgb(255, 251, 251);
-}
-.hero .title::after {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  text-align: center;
-  pointer-events: none;
-  background: linear-gradient(180deg, #bb62ff 0%, #3d1759 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
 }
 @media (width <= 830px) {
   .hero .title {
