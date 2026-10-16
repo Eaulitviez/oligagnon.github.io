@@ -5,7 +5,11 @@
     <script>
   (function () {
     if (!/[?&]debug\b/.test(location.search)) return;
-    var lines = [], box, created = 0, lost = 0;
+    var lines = [], box, created = 0, lost = 0, all = [];
+    function who(cv) {
+      var host = cv.closest('[data-component]');
+      return host ? host.getAttribute('data-component') : (cv.parentElement ? cv.parentElement.className || cv.parentElement.tagName : '?');
+    }
     function log(type, msg) { lines.push(type + ' ' + String(msg).slice(0, 220)); if (lines.length > 14) lines.shift(); draw(); }
     window.addEventListener('error', function (e) { log('ERREUR', e.message + ' (' + String(e.filename || '').split('/').pop() + ':' + e.lineno + ')'); });
     window.addEventListener('unhandledrejection', function (e) { log('PROMESSE', e.reason && e.reason.message ? e.reason.message : e.reason); });
@@ -18,7 +22,15 @@
       var ctx = getContext.apply(this, arguments);
       if (ctx && /webgl/.test(type) && !this.__dbg) {
         this.__dbg = true; created++;
-        this.addEventListener('webglcontextlost', function () { lost++; log('WEBGL', 'contexte PERDU'); draw(); });
+        var cv = this;
+        all.push({ canvas: cv, gl: ctx });
+        cv.addEventListener('webglcontextlost', function () {
+          // Canvas encore dans la page = Chrome l'a éjecté (trop de contextes). Sinon c'est un nettoyage normal.
+          setTimeout(function () {
+            if (cv.isConnected) { lost++; log('ÉJECTÉ', 'contexte perdu : ' + who(cv)); }
+            draw();
+          }, 0);
+        });
       }
       if (!ctx && /webgl/.test(type)) log('WEBGL', type + ' indisponible');
       return ctx;
@@ -44,11 +56,21 @@
         box.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:2147483647;margin:0;padding:8px;max-height:48vh;overflow:auto;background:rgba(0,0,0,.88);color:#7CFC9A;font:11px/1.35 monospace;white-space:pre-wrap;word-break:break-word;pointer-events:none';
         document.body.appendChild(box);
       }
+      var alive = {}, dead = {};
+      all.forEach(function (a) {
+        if (!a.canvas.isConnected) return;
+        var n = who(a.canvas), isLost = false;
+        try { isLost = a.gl.isContextLost(); } catch (e) {}
+        var t = isLost ? dead : alive;
+        t[n] = (t[n] || 0) + 1;
+      });
+      var fmt = function (o) { var k = Object.keys(o); return k.length ? k.map(function (n) { return n + ' x' + o[n]; }).join(', ') : '-'; };
       box.textContent = 'DEBUG  ' + innerWidth + 'x' + innerHeight + '  dpr ' + devicePixelRatio +
         '  tactile ' + (matchMedia('(pointer: coarse)').matches ? 'oui' : 'non') + '\n' + caps + '\n' +
         'canvas dans la page : ' + document.querySelectorAll('canvas').length +
-        ' | contextes WebGL créés : ' + created + ' | perdus : ' + lost + '\n--------\n' +
-        (lines.length ? lines.join('\n') : '(aucune erreur pour le moment)');
+        ' | contextes créés : ' + created + ' | ÉJECTÉS par Chrome : ' + lost + '\n' +
+        'vivants : ' + fmt(alive) + '\nMORTS : ' + fmt(dead) + '\n' +
+        '--------\n' + (lines.length ? lines.join('\n') : '(aucune erreur pour le moment)');
     }
     document.addEventListener('DOMContentLoaded', draw);
     setInterval(draw, 1000);
