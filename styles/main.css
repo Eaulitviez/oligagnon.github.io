@@ -2849,4 +2849,13 @@ html.is-loading .preloader:not(.is-active) .preloader__fill {
     animation: none;
   }
 }
+/* Dissolve : un trou circulaire flou qui s'agrandit depuis le centre */
+.preloader {
+  --reveal: -25;
+}
+
+.preloader.is-dissolving {
+  -webkit-mask-image: radial-gradient(circle farthest-corner at 50% 50%, transparent calc(var(--reveal) * 1%), #000 calc(var(--reveal) * 1% + 25%));
+  mask-image: radial-gradient(circle farthest-corner at 50% 50%, transparent calc(var(--reveal) * 1%), #000 calc(var(--reveal) * 1% + 25%));
+}
 /*# sourceMappingURL=main.css.map */
