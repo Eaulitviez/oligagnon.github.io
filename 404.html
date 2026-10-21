@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio: Olivier Gagnon</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png" />
+
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <script>
+        // À décommenter lorsque rendu dans le fichier .php pour que les icônes fonctionnent dans WP
+        // iconsPath = '<?php bloginfo('template_url') ?>/dist/';
+    </script>
+    <script src="scripts/main.js" defer></script>
+
+    <!---------------------------------------- ancre refresh ------------------------------------->
+    <script>
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    </script>
+
+    <!-- Sécurité : si le script du loader plante, le site se libère après 8 s -->
+    <style>
+        .preloader:not(.is-active) {
+            animation: preloader-safety 0.01s 8s forwards;
+        }
+
+        @keyframes preloader-safety {
+            to {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Écran de chargement -->
+    <div class="preloader" data-component="Preloader" role="status" aria-live="polite">
+        <div class="preloader__glow" aria-hidden="true"></div>
+        <div class="preloader__content">
+            <img class="preloader__logo" src="assets/images/preloader.png" alt="Olivier Gagnon" width="120" height="120" />
+            <div class="preloader__meta">
+                <span class="preloader__status">Chargement du site web en cours</span>
+                <span class="preloader__percent">0%</span>
+            </div>
+            <div class="preloader__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span class="preloader__fill"></span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Header -->
+    <header class="header" data-component="Header" data-tint="#a855f7" data-background-opacity="0.16" data-distortion-scale="-180" data-displace="0.5" data-saturation="1.3">
+        <div class="wrapper">
+            <a href="index.html" aria-label="Retour à l'accueil">
+                <img src="assets/images/logo.png" alt="Olivier Gagnon" />
+            </a>
+
+            <nav aria-label="Navigation principale">
+                <ul>
+                    <li><a href="index.html#top">Accueil</a></li>
+                    <li><a href="index.html#about">À propos</a></li>
+                    <li><a href="index.html#projets">Projets</a></li>
+                    <li><a href="#" data-auto-animateclass="video" data-video-open>Vidéo</a></li>
+                    <li>
+                        <a href="https://www.behance.net/oliviergagnon10" target="_blank" rel="noopener noreferrer">
+                            Behance
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#icon-be"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="assets/CV-Olivier-Gagnon.pdf" download>
+                            CV
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#icon-download"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="menu_hamburger">
+                <svg class="icon icon--md header__toggle js-toggle" aria-hidden="true">
+                    <use href="#icon-hamburger"></use>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <body>
+
+
+        <!---------------------------------------- HUB ------------------------------------->
+        <div data-component="GlowCursor" data-color="#A855F7" data-intensity="0.3" data-trail-width="3" data-linger="2.4" data-glow="1.5" data-click-burst="true" data-theme="dark"></div>
+        <audio id="music" loop src="assets/musique/djovan-nebular-dreams-435520.mp3"></audio>
+        <div id="top"></div>
+        <div data-component="AnchorLinks" data-offset="80"></div>
+        <div id="smooth-wrapper" data-component="Scroller" data-skew="true" data-pin-items="true">
+            <div id="smooth-content">
+                <section class="hero">
+                    <div class="wrapper">
+                        <h1 class="title" data-component="DepthText" data-gradient-from="#BB62FF" data-gradient-to="#3D1759" data-gradient-angle="180" data-gradient-start="0" data-gradient-end="100" data-depth-color="#000000" data-layers="34" data-depth="2.4" data-tilt="7.5" data-pointer-tracking="false" data-smoothing="0.14" data-perspective="900" data-auto-orbit data-orbit-speed="0.35">
+                            404
+                        </h1>
+                        <div class="hero_card">
+                            <div class="hero_content">
+                                <h2 js-pinned data-component="TextAnim" data-repeat>Pas de portfolio ici...</h2>
+                            </div>
+                            <div class="hero_media">
+                                <button data-component="SpecularButton" data-line-color="#be7dfc" data-intensity="3">
+                                    <a href="index.html">RETOURNER AU PORTFOLIO</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div js-pinned class="canvas" style="height: 80vh" data-component="CrystalizedBall" data-preset="plasma" data-color="#A855F7" data-size="0.7" data-crackle="0.85" data-fill="0.5" data-hover-strength="0.7"></div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="wrapper">
+
+                        <!-- 1. Appel à l'action : la première chose qu'un recruteur voit -->
+                        <div class="footer_cta">
+                            <p class="footer_eyebrow">Disponible pour un stage</p> <!-- ajoute la période si tu la connais, ex. « dès janvier 2027 » -->
+                            <h2 class="footer_title">Travaillons ensemble.</h2>
+
+                        </div>
+
+                        <!-- 2. Grille à trois colonnes -->
+                        <div class="footer_grid">
+                            <div class="footer_col">
+                                <h3 class="footer_heading">Olivier Gagnon</h3>
+                                <p class="footer_text">
+
+                                    Étudiant en design et création 3D </p>
+                            </div>
+
+                            <nav class="footer_col" aria-label="Navigation du pied de page">
+                                <h3 class="footer_heading">Navigation</h3>
+                                <!-- index.html devant les ancres pour que les liens marchent aussi depuis la 404 -->
+                                <ul class="footer_links">
+                                    <li><a href="index.html#top">Accueil</a></li>
+                                    <li><a href="index.html#about">À propos</a></li>
+                                    <li><a href="index.html#projets">Projets</a></li>
+                                    <li><a href="index.html" data-auto-animateclass="video" data-video-open>Vidéo</a></li>
+                                </ul>
+                            </nav>
+
+                            <div class="footer_col">
+                                <h3 class="footer_heading">Me rejoindre</h3>
+                                <ul class="footer_social">
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/olivier-gagnon-1558a4441/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                            <svg class="icon icon--lg" aria-hidden="true">
+                                                <use href="#icon-in"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <!-- Remplace par ton URL Behance et ton id d'icône -->
+                                        <a href="https://www.behance.net/oliviergagnon10" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                                            <svg class="icon icon--lg" aria-hidden="true">
+                                                <use href="#icon-be"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:olivier.gagnon.cl@gmail.com" aria-label="M’envoyer un courriel">
+                                            <svg class="icon icon--lg" aria-hidden="true">
+                                                <use href="#icon-gmail"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- Remplace par le chemin de ton CV -->
+                                <a class="footer_cv" href="assets/cv-olivier-gagnon.pdf" download>Télécharger mon CV ↓</a>
+                            </div>
+                        </div>
+
+                        <!-- 3. Note IA : présente, mais repliée -->
+                        <details class="footer_ai">
+                            <summary>Utilisation de l’IA dans ce portfolio</summary>
+                            <p>
+                                Claude m’a aidé à intégrer la musique, l’écran de chargement et des effets WebGL et GSAP
+                                de React Bits non vus en classe, notamment en les convertissant en data-components pour mieux
+                                comprendre le code. Tout le reste a été réalisé à la main.
+                            </p>
+                            <p>
+                                Pour le projet Sous Zéro, l’IA était exigée dans le cadre du cours et a servi uniquement
+                                à générer des visuels (images et vidéos).
+                            </p>
+                        </details>
+
+                        <!-- 4. Barre du bas -->
+                        <div class="footer_bottom">
+                            <p class="copyright">© 2026 Olivier Gagnon — Tous droits réservés.</p>
+                        </div>
+
+                    </div>
+                </footer>
+            </div>
+        </div>
